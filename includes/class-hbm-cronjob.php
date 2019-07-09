@@ -153,9 +153,11 @@ class HBM_Cronjob{
         //TODO: get these action from settings
         
         //TODO: send email, if checked
+        $message = "Robi3: {$client_slug} appeared to have {$client_status}. Please check.";
+        $subject = "Robi3: {$client_slug} - {$client_status}";        
+        wp_mail( "alert@robi3.com", $subject, $message );
         
-        
-        
+        /*
         // Send SMS
         // https://www.twilio.com/blog/2017/08/send-sms-wordpress-php-plugin.html
         // https://www.twilio.com/docs/sms/tutorials/how-to-send-sms-messages-php
@@ -195,7 +197,7 @@ class HBM_Cronjob{
                               );
         }
         
-        
+        */
         
     }
 	
