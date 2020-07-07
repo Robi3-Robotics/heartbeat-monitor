@@ -29,8 +29,36 @@ class Heartbeat_Monitor_Deactivator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function deactivate() {
+	public static function deactivate(){
+	    global $wpdb;
 
+        $table_name1 = $wpdb->prefix . 'heartbeatmonitor_clients';
+        $table_name2 = $wpdb->prefix . 'heartbeatmonitor_incidents';
+
+        $wpdb->query( "DROP TABLE IF EXISTS $table_name1" );
+        $wpdb->query( "DROP TABLE IF EXISTS $table_name2" );
+    }
+
+    /*
+	public static function js() {
+
+        echo "
+        <script type=\"text/JavaScript\">
+        window.onload = function(){
+            document.querySelector('[data-slug=\"heartbeat-monitor\"] a').addEventListener('click', function(event){
+                event.preventDefault()
+                    var urlRedirect = document.querySelector('[data-slug=\"heartbeat-monitor\"] a').getAttribute('href');
+                    if (confirm('Are you sure you want to delete the database?')) {
+                       
+                    }
+                })
+        }
+        </script>";
+    https://stackoverflow.com/questions/15757750/how-can-i-call-php-functions-by-javascript
+    
 	}
-
+    */
 }
+
+
+

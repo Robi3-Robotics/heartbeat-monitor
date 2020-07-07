@@ -193,6 +193,4 @@ public function add_plugin_admin_menu() {
 	public function display_add_client_action() {
 	    include_once( 'partials/client-add-client-action.php' );
 	}
-	
-			
 }
